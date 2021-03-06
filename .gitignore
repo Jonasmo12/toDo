@@ -1,0 +1,8 @@
+*.pyc
+todo/db.sqlite3
+__pycache__
+*.pyo
+*.pyd
+venv/
+
+todo/todo/settings/.env

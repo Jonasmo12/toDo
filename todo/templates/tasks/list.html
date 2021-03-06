@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui two column doubling stackable grid container" style="margin-top: 20px;">
+	<div class="column">
+		<form class="ui form" method="POST" action="/">
+			<div class="field">
+				{% csrf_token %}
+				<input name="title" class="form-control" placeholder="Add new task......" />
+				<br><br>
+				<input class="mini ui primary button" type="submit" name="Create Task" value="Create Task">
+			</div>
+		</form>
+	</div>
+
+	<div class="column">
+		<div class="ui list">
+
+			{% for task in tasks %}
+			<div class="item">
+
+				<a class="" href="{% url 'app:update_task' task.id %}">
+					<i class="thumbtack icon"></i>
+				</a>
+				<a class="trash icon" href="{% url 'app:delete' task.id %}">
+					<i class="trash icon"></i>
+				</a>
+
+
+				{% if task.complete == True %}
+				<strike>{{task | title }}</strike>
+				{% else %}
+				<span>{{task | title }}</span>
+				{% endif %}
+
+				<p class="ui right aligned container" style="font-size: 10px; color: lightgrey;">
+					{{task.created}}
+				</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+
+
+<div class="ui two column grid" style="background-color: darkcyan; color: white; margin-top: 250px;">
+	<div class="column">
+		<strong class="ui left aligned container" style="padding-left: 15px;">
+			Welcome; {{request.user.email}}.
+		</strong>
+		<p class="ui left aligned container" style="padding-left: 15px; font-size: 10px; color: lightgray;">
+
+			Last Login: {{request.user.last_login}}
+		</p>
+	</div>
+
+	<div class=" column">
+		<p class="ui right aligned container" style="padding-right: 15px;">
+			<a class="ui light button" href="{% url 'accounts:logout' %}">Logout</a>
+		</p>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

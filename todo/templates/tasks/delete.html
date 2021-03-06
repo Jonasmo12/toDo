@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="ui one column doubling stackable grid container" style="margin-top: 20px;">
+
+	<div class="column">
+		<p>Are you sure you want to delete "<strong>{{item}}</strong>"?</p>
+
+		<a class="ui positive button mini" href="{% url 'app:home' %}">Cancel</a>
+		<br><br>
+
+		<form class="ui form" method="POST" action="">
+			{% csrf_token %}
+			<input class="ui negative button mini" type="submit" name="Confirm" value="Confirm">
+		</form>
+	</div>
+
+</div>
+
+{% endblock %}

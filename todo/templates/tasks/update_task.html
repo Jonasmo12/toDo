@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="ui one column doubling stackable grid container" style="margin-top: 20px;">
+
+	<div class="column">
+		<h3>Update Task</h3>
+
+		<form class="ui form" method="POST" action="">
+			{% csrf_token %}
+
+			{{form.as_p}}
+			<input type="submit" class="positive ui button mini" name="Update Task">
+
+
+		</form>
+	</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% block title %} <title>ToDo | Keep your tasks in check.</title> {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'core.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/semantic.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'icon/font-awesome.min.css' %}" />
+    <script src="{% static 'jquery/jquery.js' %}"></script>
+
+
+</head>
+
+<body>
+    {% block content %}
+
+    {% endblock %}
+
+
+</body>
+
+<script src="{% static 'js/semantic.min.js' %}"></script>
+<script src="{% static 'js/cart.js' %}"></script>
+<script src="{% static 'jquery/jquery.js' %}"></script>
+
+</html>
